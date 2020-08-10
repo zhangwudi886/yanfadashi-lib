@@ -9,7 +9,7 @@ before_install:
 install:
   - npm install
 script:
-  - npm run test
+  - npm run test:nowatch
   - npm run build-storybook
 cache:
   npm: false
