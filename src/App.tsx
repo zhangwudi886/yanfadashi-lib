@@ -36,7 +36,7 @@ function App() {
           onError={onError}
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         >
-          点我上传
+          点我上传1
         </Upload>
       </header>
     </div>
