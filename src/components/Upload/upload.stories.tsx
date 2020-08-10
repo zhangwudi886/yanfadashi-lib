@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import Upload, { UploadFile } from "./upload";
 import Icon from "../Icon/icon";
-import UploadList from "./uploadlist";
+import UploadList from "./fileList";
 const defaultFileList: UploadFile[] = [
   {
     name: "-JavaScript高级程序设计第三版error.pdf",

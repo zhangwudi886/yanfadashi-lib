@@ -10,6 +10,7 @@ interface UploadProps {
   onChange?: (file: File) => void;
   onProgress?: (percent: number, file: File) => void;
   onRemove?: (_file: UploadFile) => void;
+
   defaultFileList?: UploadFile[];
   data?: { [key: string]: string };
   headers?: { [key: string]: string };
@@ -127,7 +128,7 @@ export const Upload: FC<UploadProps> = (props) => {
         return file.uid !== _file.uid;
       })
     );
-    onRemove(_file);
+    onRemove && onRemove(_file);
   };
   useEffect(() => {
     console.log("fileList", fileList);

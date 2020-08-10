@@ -7,12 +7,6 @@ const defaultButton = () => {
   return <Button onClick={action("click")}>default button</Button>;
 };
 
-const storybookFn = (fn) => (
-  <div>
-    组件展示
-    {fn}
-  </div>
-);
 const ButtonWithSize = () => (
   <>
     <Button onClick={action("click")} size="lg">
@@ -39,14 +33,9 @@ const ButtonWithType = () => (
 );
 storiesOf("Button Component", module)
   .add("Button", defaultButton)
-  .add(
-    "样式 Button",
-    ButtonWithSize,
-    {
-      info: {
-        inline: false,
-      },
+  .add("样式 Button", ButtonWithSize, {
+    info: {
+      inline: false,
     },
-    {}
-  )
+  })
   .add("类型 Button", ButtonWithType);
