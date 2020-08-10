@@ -1,8 +1,35 @@
 {
   "name": "mylib5",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "type": "dist/index.d.ts",
+  "homepage": "git@github.com:zhangwudi886/yanfadashi-lib.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zhangwudi886/yanfadashi-lib.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "typescript": "~3.7.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,16 +37,28 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "~3.7.2"
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^5.3.19",
+    "@types/classnames": "^2.2.10",
+    "@types/storybook__addon-info": "^5.2.1",
+    "node-sass": "^4.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "lint": "eslint ./src --ext .js,.jsx,.tsx ",
+    "build": "npm run build-ts && npm run build-css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:nowatch": "cross-env CI=true react-scripts test",
+    "eject": "react-scripts eject",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prepublishOnly": "npm run lint && npm run test:nowatch && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
